@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bức thư cho Lan Hương 💌</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to top, #ffe6f0, #fff);
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 8s linear infinite;
+      opacity: 0.6;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -7.5px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -7.5px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(45deg); opacity: 0.7; }
+      100% { transform: translateY(-120vh) rotate(45deg); opacity: 0; }
+    }
+
+    .page {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      text-align: center;
+    }
+
+    #coverPage {
+      background: url('https://i.imgur.com/GXWbDbX.png') center/contain no-repeat;
+      background-color: #fff0f5;
+      flex-direction: column;
+    }
+
+    #letterPage {
+      background: #fff;
+      display: none;
+      flex-direction: column;
+      line-height: 1.8;
+      font-size: 20px;
+      color: #444;
+    }
+
+    .button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      background: #ff6f91;
+      border: none;
+      color: white;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .signature {
+      margin-top: 40px;
+      font-style: italic;
+      color: #aa0000;
+    }
+  </style>
+</head>
+<body>
+  <div id="coverPage" class="page">
+    <h1 style="font-size: 40px; color: #d63384;">💌 Gửi người con gái của anh 💌</h1>
+    <button class="button" onclick="showLetter()">Mở thư</button>
+  </div>
+
+  <div id="letterPage" class="page">
+    <div>
+      <p>Dear Lan Hương người con gái của anh,</p>
+      <p>Anh yêu rất rất nhiều, yêu em nhiều hơn cả bản thân anh. Anh chỉ muốn người anh yêu hạnh phúc và vui vẻ.</p>
+      <p>Anh xin lỗi vì đôi lúc làm em buồn và khó chịu.</p>
+      <p>Anh yêu em không phải vì một lý do nào hết, mà là vì toàn bộ chính em – một bản thể toàn diện của người phụ nữ đời anh.</p>
+      <p>Hôm nay anh biết em mệt mỏi và cần anh, nhưng anh lại không thể ở bên em. Anh xin lỗi em.</p>
+      <p>Anh hứa tuần sau anh sẽ bù đắp lại cho em thật nhiều.</p>
+      <p>Nếu em thấy sức khoẻ không ổn thì ngày mai mình cùng đi bệnh viện khám nhé vợ yêu, vợ của anh vãiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii.</p>
+      <p class="signature">Gửi người phụ nữ của cả đời anh,<br>Lê Hoàng Nam</p>
+    </div>
+  </div>
+
+  <script>
+    function showLetter() {
+      document.getElementById('coverPage').style.display = 'none';
+      document.getElementById('letterPage').style.display = 'flex';
+    }
+
+    // Tạo nhiều trái tim
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = '100vh';
+      heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      heart.style.background = ['#ff6b81', '#ff4757', '#e056fd'][Math.floor(Math.random()*3)];
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+
+    setInterval(createHeart, 150);
+  </script>
+</body>
+</html>
